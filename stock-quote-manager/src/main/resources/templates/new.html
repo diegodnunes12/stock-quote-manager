@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Register</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+
+
+<div class="container mt-4">
+	<div class="text-center mb-4">		
+		<h1 class="h3">Register</h1>
+		<div class="row">
+		<div class="col-sm-6">
+			<form th:action="@{/saveQuote}" th:object="${quote}" method="POST">
+				<div class="card">
+					<div class="card-header">
+						<h2 class="h4">New Quote</h2>
+					</div>
+					<div class="card-body">						
+						<div class="form-group">
+							<label>Stock</label>
+							<input th:field="*{stock}" type="text" class="form-control">
+						</div>
+						  
+						<div class="form-group">
+							<label>Value</label>
+							<input th:field="*{value}" type="text" class="form-control">
+						</div>
+						
+						<div class="form-group">
+							<label>Date</label>
+							<input th:field="*{date}" type="text" class="form-control">
+						</div>
+						
+					</div>
+					<div class="card-footer">
+						<input type="submit" value="Save" class="btn btn-success">
+					</div>
+					
+					<div>
+						<h2 th:text="${message}"></h2>
+					</div>
+					
+				</div>
+			</form>
+		</div>
+		<div class="col-sm-6">
+			<form th:action="@{/saveStock}" th:object="${stock}" method="POST">
+				<div class="card">
+					<div class="card-header">
+						<h2 class="h4">New Stock</h2>
+					</div>
+					<div class="card-body">						
+						<div class="form-group">
+							<label>Stock</label>
+							<input th:field="*{id}" type="text" class="form-control">
+						</div>
+						  
+						<div class="form-group">
+							<label>Value</label>
+							<input th:field="*{description}" type="text" class="form-control">
+						</div>
+						
+					</div>
+					<div class="card-footer">
+						<input type="submit" value="Save" class="btn btn-success">
+					</div>
+					
+					<div>
+						<h2 th:text="${messageStock}" th:classappend="${condition} ? 'primary' : 'warning'"></h2>
+					</div>
+					
+				</div>
+			</form>
+		</div>
+		</div>
+	</div>
+	
+</div>
+</body>
+</html>

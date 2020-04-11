@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Quotes</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+
+
+<div class="container mt-4">
+	<div class="text-center mb-4">
+		<h1 class="h3">Quotes</h1>
+	</div>
+	
+	<div>
+		<h2 th:text="${message}"></h2>
+	</div>
+	
+	<div>
+		<a th:href="@{/new}" class="btn btn-primary">New</a>
+	</div>
+	<table class="table mt-4">
+	<thead>
+		<tr>
+			<th>STOCK</th>
+			<th>VALUE</th>
+			<th>DATE</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr th:each="qt : ${quotes}">
+			<td th:text="${qt.stock}"></td>
+			<td th:text="${qt.value}"></td>
+			<td th:text="${qt.date}"></td>
+		</tr>
+	</tbody>
+	</table>
+</div>
+<script
+  src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+</body>
+</html>
